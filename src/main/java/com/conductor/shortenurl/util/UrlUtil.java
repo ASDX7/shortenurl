@@ -3,7 +3,7 @@ package com.conductor.shortenurl.util;
 import java.util.regex.Pattern;
 
 /**
- * URL校验工具
+ * @author renliangyu857
  */
 public class UrlUtil {
 

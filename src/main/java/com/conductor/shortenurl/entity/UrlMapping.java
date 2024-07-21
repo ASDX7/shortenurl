@@ -2,55 +2,67 @@ package com.conductor.shortenurl.entity;
 
 import java.util.Date;
 
-/*
- * @author: enping.jep
- * @create: 2023-04-18 7:37 PM
+/**
+ *
  */
 public class UrlMapping {
 
-  private Long id;
+	private static final long DEFAULT_TIMEOUT = 30 * 24 * 60 * 60L;
 
-  private String shortUrl;
+	private Long id;
 
-  private String longUrl;
+	private String shortUrl;
 
-  private Date expireTime;
+	private String longUrl;
 
+	private Date createdTime;
 
-  public UrlMapping(String shortUrl, String longUrl) {
-    this.shortUrl = shortUrl;
-    this.longUrl = longUrl;
-  }
+	private Date expireTime;
 
-  public Long getId() {
-    return id;
-  }
+	public UrlMapping(String shortUrl, String longUrl, Integer timeout) {
+		this.shortUrl = shortUrl;
+		this.longUrl = longUrl;
+		this.createdTime = new Date();
+		expireTime = new Date(this.createdTime.getTime() + (timeout != null ? timeout * 60 : DEFAULT_TIMEOUT));
+	}
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+	public Long getId() {
+		return id;
+	}
 
-  public String getShortUrl() {
-    return shortUrl;
-  }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-  public void setShortUrl(String shortUrl) {
-    this.shortUrl = shortUrl;
-  }
+	public String getShortUrl() {
+		return shortUrl;
+	}
 
-  public String getLongUrl() {
-    return longUrl;
-  }
+	public void setShortUrl(String shortUrl) {
+		this.shortUrl = shortUrl;
+	}
 
-  public void setLongUrl(String longUrl) {
-    this.longUrl = longUrl;
-  }
+	public String getLongUrl() {
+		return longUrl;
+	}
 
-  public Date getExpireTime() {
-    return expireTime;
-  }
+	public void setLongUrl(String longUrl) {
+		this.longUrl = longUrl;
+	}
 
-  public void setExpireTime(Date expireTime) {
-    this.expireTime = expireTime;
-  }
+	public Date getCreatedTime() {
+		return createdTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		this.createdTime = createdTime;
+	}
+
+	public Date getExpireTime() {
+		return expireTime;
+	}
+
+	public void setExpireTime(Date expireTime) {
+		this.expireTime = expireTime;
+	}
 }

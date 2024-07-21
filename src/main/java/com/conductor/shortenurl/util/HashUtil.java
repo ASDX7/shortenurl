@@ -1,13 +1,11 @@
 package com.conductor.shortenurl.util;
 
-import com.google.common.hash.HashFunction;
 import com.google.common.hash.Hashing;
 
 import java.nio.charset.StandardCharsets;
 
-/*
- * @author: enping.jep
- * @create: 2023-04-18 3:47 PM
+/**
+ * @author renliangyu857
  */
 public class HashUtil {
 
@@ -69,5 +67,8 @@ public class HashUtil {
         return Hashing.murmur3_32_fixed().hashString(str, StandardCharsets.UTF_8).padToLong();
     }
 
+    public static String base62MurmurHash(String str) {
+        return convertDecToBase62(murmurHashStirng(str));
+    }
 
 }

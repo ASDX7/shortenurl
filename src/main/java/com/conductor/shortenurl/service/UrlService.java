@@ -1,8 +1,7 @@
 package com.conductor.shortenurl.service;
 
-/*
- * @author: enping.jep
- * @create: 2023-04-18 2:24 PM
+/**
+ * @author renliangyu857
  */
 public interface UrlService {
 
@@ -10,20 +9,10 @@ public interface UrlService {
    * 根据长URL生成短URL(不带过期时间)
    *
    * @param longUrl 长Url
+   * @param timeout 过期时间
    * @return 短Url
    */
-  String generateShortUrl(String longUrl);
-
-
-  /**
-   * 根据长URL生成短URL(带过期时间)
-   *
-   * @param longUrl 长Url
-   * @param timeout 超时时间
-   * @param timeUnit 时间单位
-   * @return 短Url
-   */
-  String generateShortUrl(String longUrl, long timeout, String timeUnit);
+  String generateShortUrl(String longUrl, String type, Integer timeout);
 
 
   /**
@@ -33,6 +22,5 @@ public interface UrlService {
    * @return 长URL
    */
   String getLongUrlByShortUrl(String shortUrl);
-
 
 }

@@ -1,9 +1,8 @@
 package com.conductor.shortenurl.util;
 
 /**
- * @author enping
- * @date 2023/4/22 23:07
- **/
+ * @author renliangyu857
+ */
 public class ShardingUtil {
 
     public static final int TBL_CNT = 4; //每个库四张表
